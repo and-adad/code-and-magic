@@ -183,6 +183,17 @@
 
 <script>
   var fireballSize = 22;
+  var getFireballSpeed = function correctionWindDirection(left) {
+    var fireballSpeed = 3.5;
+    var wind = 1.5;
+    var leftWindDirection = fireballSpeed + wind;
+    var rightWindDirection = fireballSpeed - wind;
+    // body...
+
+    return left ? rightWindDirection : leftWindDirection;
+  }
+
+  getFireballSpeed();
 </script>
 <script src="js/game.js"></script>
 
