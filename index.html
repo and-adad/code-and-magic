@@ -205,6 +205,15 @@
   }
 
   getFireballSpeed();
+
+  var getWizardX =function calculationWizardX(width) {
+    var wizardX = width/2.3;
+    // вначале я подумал сделать width/2, но измерив рулеткой на экране положение мага начал экспериментировать с коэфициентом. Эмпирическим путем выяснил, что 2.3 будет идеально смотреться посередине
+
+    return wizardX;
+  }
+
+  getWizardX();
 </script>
 <script src="js/game.js"></script>
 
