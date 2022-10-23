@@ -185,6 +185,15 @@
   var fireballSize = 22;
   var wizardSpeed = 3;
   var wizardWidth = 70;
+  var getWizardHeight = function proportional(argument) {
+    var proportional = 1.337;
+    var wizardHeight = wizardWidth * proportional;
+
+    return wizardHeight;
+  }
+
+  getWizardHeight();
+
   var getFireballSpeed = function correctionWindDirection(left) {
     var fireballSpeed = 3.5;
     var wind = 1.5;
