@@ -1,14 +1,14 @@
 'use strict';
 
+var CLOUD_WIDTH = 500;
+var CLOUD_HEIGHT = 200;
+
 var renderCloud = function (ctx, x, y, color) {
 	ctx.fillStyle = color;
-	ctx.fillRect(x, y, 500, 200);
+	ctx.fillRect(x, y, CLOUD_WIDTH, CLOUD_HEIGHT);
 };
 
 window.renderStatistics = function (ctx) {
-	ctx.fillStyle = 'rgba(0, 0, 0, 0.3';
-	ctx.fillRect(110, 60, 500, 200);
-
-	ctx.fillStyle = '#fff';
-	ctx.fillRect(100, 50, 500, 200);
+	renderCloud(ctx, 110, 60, 'rgba(0, 0, 0, 0.3)');
+	renderCloud(ctx, 100, 50, '#fff');
 };
