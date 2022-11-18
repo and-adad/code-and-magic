@@ -28,4 +28,9 @@ window.renderStatistics = function (ctx) {
     ctx.closePath();
     ctx.stroke();
     ctx.fill();
+
+    ctx.fillStyle = '#000';
+    ctx.font = '16px Mono';
+    ctx.fillText('Ура вы победили!', 255, 20);
+    ctx.strokeText('Список результатов:', 245, 40);
 };
