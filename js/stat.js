@@ -2,7 +2,7 @@
 
 var CLOUD_WIDTH = 420;
 var CLOUD_HEIGHT = 270;
-var BAR_DELTA = 35; // это расстояние между столбиками гистограммы
+var BAR_DELTA = 50; // это расстояние между колонками гистограммы
 var CLOUD_DELTA = 10; // это кратчайшее расстояние (как по оси x, так и по оси y) от грани многоугольника до ребра прямоугольника вписанного в наш многоугольник. А также расстояние, на которое тень отстает от облака.
 var CLOUD_X = 100;
 var CLOUD_Y = 10;
@@ -39,8 +39,13 @@ window.renderStatistics = function (ctx) {
     var players = ['Вы', 'Валя', 'Кекс', 'Катя'];
 
     for (var i = 0; i < players.length; i++) {
-        console.log(i);
+        var color = i * 15;
+
+        ctx.fillStyle = '#000';
         ctx.fillText(players[i], CLOUD_X + BAR_DELTA + (BAR_WIDTH + BAR_DELTA)*i, CLOUD_Y + CLOUD_HEIGHT -CLOUD_DELTA);
+
+        players[i] === 'Вы' ? ctx.fillStyle = 'rgba(255, 0, 0, 1)' : ctx.fillStyle = 'hsl(240, ' + color + '%, 50%)'
+
         ctx.fillRect(CLOUD_X + BAR_DELTA + (BAR_WIDTH + BAR_DELTA)*i, CLOUD_Y + CLOUD_HEIGHT -CLOUD_DELTA - TEXT_HEIGHT, BAR_WIDTH, - BAR_HEIGHT);
     }
 };
