@@ -1,5 +1,27 @@
 'use strict';
 
+var CLOUD_WIDTH = 420;
+var CLOUD_HEIGHT = 270;
+var CLOUD_DELTA = 15;
+var CLOUD_X = 100;
+var CLOUD_Y = 10;
+
+var renderCloud = function(ctx, CLOUD_X, CLOUD_Y, color) {
+    ctx.fillStyle = color;
+    ctx.beginPath();
+    ctx.moveTo(CLOUD_X, CLOUD_Y);
+    ctx.lineTo(CLOUD_X +CLOUD_WIDTH/2, CLOUD_Y - CLOUD_DELTA);
+    ctx.lineTo(CLOUD_X + CLOUD_WIDTH, CLOUD_Y);
+    ctx.lineTo(CLOUD_X + CLOUD_WIDTH + CLOUD_DELTA, CLOUD_Y + CLOUD_HEIGHT/2);
+    ctx.lineTo(CLOUD_X + CLOUD_WIDTH, CLOUD_Y + CLOUD_HEIGHT);
+    ctx.lineTo(CLOUD_X + CLOUD_WIDTH/2, CLOUD_Y + CLOUD_HEIGHT + CLOUD_DELTA);
+    ctx.lineTo(CLOUD_X,CLOUD_Y +CLOUD_HEIGHT);
+    ctx.lineTo(CLOUD_X - CLOUD_DELTA, CLOUD_Y +CLOUD_HEIGHT/2);
+    ctx.closePath();
+    ctx.stroke();
+    ctx.fill();
+};
+
 window.renderStatistics = function (ctx) {
     ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
     ctx.beginPath();
@@ -15,19 +37,7 @@ window.renderStatistics = function (ctx) {
     ctx.stroke();
     ctx.fill();
 
-    ctx.fillStyle = '#fff';
-    ctx.beginPath();
-    ctx.moveTo(100, 10);
-    ctx.lineTo(310, 0);
-    ctx.lineTo(520, 10);
-    ctx.lineTo(530, 145);
-    ctx.lineTo(520, 280);
-    ctx.lineTo(310, 290);
-    ctx.lineTo(100,280);
-    ctx.lineTo(90, 145);
-    ctx.closePath();
-    ctx.stroke();
-    ctx.fill();
+    renderCloud(ctx, CLOUD_X, CLOUD_Y, '#fff');
 
     ctx.fillStyle = '#000';
     ctx.font = '16px Mono';
