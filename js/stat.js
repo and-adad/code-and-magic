@@ -36,9 +36,6 @@ window.renderStatistics = function (ctx) {
     ctx.fillText('Ура вы победили!', 255, 35);
     ctx.strokeText('Список результатов:', 245, 80);
 
- /*   var playerIndex = 0;
-    var playerName = 'Вы';*/
-
     var players = ['Вы', 'Валя', 'Кекс', 'Катя'];
 
     for (var i = 0; i < players.length; i++) {
@@ -46,10 +43,4 @@ window.renderStatistics = function (ctx) {
         ctx.fillText(players[i], CLOUD_X + BAR_DELTA + (BAR_WIDTH + BAR_DELTA)*i, CLOUD_Y + CLOUD_HEIGHT -CLOUD_DELTA);
         ctx.fillRect(CLOUD_X + BAR_DELTA + (BAR_WIDTH + BAR_DELTA)*i, CLOUD_Y + CLOUD_HEIGHT -CLOUD_DELTA - TEXT_HEIGHT, BAR_WIDTH, - BAR_HEIGHT);
     }
-
-    /*ctx.fillText('playerName', CLOUD_X + CLOUD_DELTA, CLOUD_Y + CLOUD_HEIGHT -CLOUD_DELTA);
-    ctx.fillRect(CLOUD_X + CLOUD_DELTA, CLOUD_Y + CLOUD_HEIGHT -CLOUD_DELTA - TEXT_HEIGHT, BAR_WIDTH, - BAR_HEIGHT);
-
-    ctx.fillText('Валя', CLOUD_X + CLOUD_DELTA + BAR_WIDTH + CLOUD_DELTA, CLOUD_Y + CLOUD_HEIGHT -CLOUD_DELTA);
-    ctx.fillRect(CLOUD_X + CLOUD_DELTA + BAR_WIDTH + CLOUD_DELTA, CLOUD_Y + CLOUD_HEIGHT -CLOUD_DELTA - TEXT_HEIGHT, BAR_WIDTH, - BAR_HEIGHT);*/
 };
