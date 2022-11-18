@@ -2,7 +2,7 @@
 
 var CLOUD_WIDTH = 420;
 var CLOUD_HEIGHT = 270;
-var CLOUD_DELTA = 15;
+var CLOUD_DELTA = 10; // это кратчайшее расстояние (как по оси x, так и по оси y) от грани многоугольника до ребра прямоугольника вписанного в наш многоугольник
 var CLOUD_X = 100;
 var CLOUD_Y = 10;
 
@@ -23,20 +23,8 @@ var renderCloud = function(ctx, CLOUD_X, CLOUD_Y, color) {
 };
 
 window.renderStatistics = function (ctx) {
-    ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
-    ctx.beginPath();
-    ctx.moveTo(110, 20);
-    ctx.lineTo(320, 10);
-    ctx.lineTo(530, 20);
-    ctx.lineTo(540, 155);
-    ctx.lineTo(530, 290);
-    ctx.lineTo(320, 300);
-    ctx.lineTo(110,290);
-    ctx.lineTo(100, 155);
-    ctx.closePath();
-    ctx.stroke();
-    ctx.fill();
 
+    renderCloud(ctx, CLOUD_X + 10, CLOUD_Y + 10, 'rgba(0, 0, 0, 0.7)');
     renderCloud(ctx, CLOUD_X, CLOUD_Y, '#fff');
 
     ctx.fillStyle = '#000';
