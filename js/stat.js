@@ -26,7 +26,7 @@ var renderCloud = function(ctx, CLOUD_X, CLOUD_Y, color) {
     ctx.fill();
 };
 
-window.renderStatistics = function (ctx, players) {
+window.renderStatistics = function (ctx, players, times) {
 
     renderCloud(ctx, CLOUD_X + CLOUD_DELTA, CLOUD_Y + CLOUD_DELTA, 'rgba(0, 0, 0, 0.7)');
     renderCloud(ctx, CLOUD_X, CLOUD_Y, '#fff');
@@ -35,8 +35,6 @@ window.renderStatistics = function (ctx, players) {
     ctx.font = '16px PT Mono';
     ctx.fillText('Ура вы победили!', 255, 35);
     ctx.strokeText('Список результатов:', 245, 80);
-
-/*    var players = ['Вы', 'Валя', 'Кекс', 'Катя'];*/
 
     for (var i = 0; i < players.length; i++) {
         var color = i * 15;
