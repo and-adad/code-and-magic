@@ -55,6 +55,7 @@ window.renderStatistics = function (ctx, players, times) {
 
         ctx.fillStyle = '#000';
         ctx.fillText(players[i], CLOUD_X + BAR_DELTA + (BAR_WIDTH + BAR_DELTA)*i, CLOUD_Y + CLOUD_HEIGHT -CLOUD_DELTA);
+        ctx.fillText(Math.floor(times[i]), CLOUD_X + BAR_DELTA + (BAR_WIDTH + BAR_DELTA)*i, CLOUD_Y + CLOUD_HEIGHT -CLOUD_DELTA - BAR_HEIGHT * times[i] / maxTime - CLOUD_DELTA - TEXT_HEIGHT);
 
         players[i] === 'Вы' ? ctx.fillStyle = 'rgba(255, 0, 0, 1)' : ctx.fillStyle = 'hsl(240, ' + color + '%, 50%)'
 
