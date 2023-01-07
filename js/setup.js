@@ -53,6 +53,38 @@ var generateWizardsJS = function (amount) {
   return dataWizards;
 };   
 
+var generateWizardsDOM = function (elementsJS) {
+  var wizardsSimilarDOM = [];
+
+  for (var i = 0; i < elementsJS.length; i++) {
+    var wizardTemplateDOM = document.querySelector('#similar-wizard-template')
+      .content
+      .querySelector('.setup-similar-item');
+
+    wizardTemplateDOM.querySelector('.setup-similar-label').textContent = elementsJS[i].name;
+    wizardTemplateDOM.querySelector('.wizard-coat').style.fill = elementsJS[i].coatColor;
+    wizardTemplateDOM.querySelector('.wizard-eyes').style.fill = elementsJS[i].eyesColor;
+
+    var wizardElementDOM = wizardTemplateDOM.cloneNode(true);
+    wizardsSimilarDOM.push(wizardElementDOM);
+  }
+  return wizardsSimilarDOM
+};
+
+var addWizard = function (elementsDOM) {
+  var setupWindow = document.querySelector('.setup');
+  setupWindow.classList.remove('hidden');
+  setupWindow.querySelector('.setup-similar').classList.remove('hidden');
+
+  var wizardSimilarBlock = document.querySelector('.setup-similar-list');
+  var blockFragment = document.createDocumentFragment();
+
+  for (var i = 0; i < elementsDOM.length; i++) {
+    var blockFragmentWithWizard = elementsDOM[i];
+    blockFragment.appendChild(blockFragmentWithWizard);
+  }
+  wizardSimilarBlock.appendChild(blockFragment);
+};
 
 
 /*  for (var i = 0; i < 4; i++) {
