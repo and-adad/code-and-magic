@@ -33,6 +33,12 @@ var generateEyesColor = function () {
     return eyesColorWizard;
 };
 
+wizard.name = generateName();
+wizard.coatColor = generateCoatColor();
+wizard.eyesColor = generateEyesColor();
+
+dataWizards.push(wizard);
+
 
   for (var i = 0; i < 4; i++) {
     var wizardElement = similarWizardTemplate.cloneNode(true);
