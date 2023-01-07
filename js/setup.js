@@ -86,6 +86,10 @@ var addWizard = function (elementsDOM) {
   wizardSimilarBlock.appendChild(blockFragment);
 };
 
+var wizardsJS = generateWizardsJS(4);
+var wizardsDOM = generateWizardsDOM(wizardsJS);
+addWizard(wizardsDOM);
+
 
 /*  for (var i = 0; i < 4; i++) {
     var wizardElement = similarWizardTemplate.cloneNode(true);
