@@ -4,7 +4,6 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Mono&subset=latin,cyrillic">
   <link rel="stylesheet" href="css/main.css">
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <title>Код и Магия</title>
 </head>
 <body>
@@ -63,30 +62,22 @@
   <div class="demo"></div>
 
   <div class="setup-open">
-    <img src="./img/user-1.jpg" class="setup-open-icon">
+    <img src="./img/user-1.jpg" class="setup-open-icon" tabindex="0">
   </div>
 </header>
 
 <div class="overlay setup hidden">
-  <form class="setup-wizard-form"
-        method="post"
-        enctype="multipart/form-data"
-        autocomplete="off">
+  <form class="setup-wizard-form">
 
     <div class="setup-title">
       <div class="setup-user">
-        <div class="upload">
-          <img class="setup-user-pic" src="./img/user-1.jpg"/>
-          <input type="file" name="avatar">
-        </div>
+        <img class="setup-user-pic" src="./img/user-1.jpg"/>
         <label>
-          <input type="text" name="username"
-                 maxlength="25" required
-                 class="setup-user-name" value="Синий Пендальф"/>
+          <input type="text" class="setup-user-name" value="Синий Пендальф" required minlength="2" maxlength="50" />
         </label>
       </div>
 
-      <span class="setup-close">&times;</span>
+      <span class="setup-close" tabindex="0">&times;</span>
     </div>
 
 
@@ -108,20 +99,17 @@
         <div class="setup-wizard-wrap">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 62 86" class="setup-wizard">
             <g class="wizard">
-              <use xlink:href="#wizard-coat" class="wizard-coat" style="fill: #6589a4"></use>
-              <use xlink:href="#wizard-head" class="wizard-head"></use>
-              <use xlink:href="#wizard-eyes" class="wizard-eyes"></use>
+              <use xlink:href="#wizard-coat"  class="wizard-coat" style="fill: #6589a4"></use>
+              <use xlink:href="#wizard-head"  class="wizard-head"></use>
+              <use xlink:href="#wizard-eyes"  class="wizard-eyes"></use>
               <use xlink:href="#wizard-hands" class="wizard-hands"></use>
             </g>
           </svg>
         </div>
-        <input type="hidden" name="coat-color" value="rgb(101, 137, 164)">
-        <input type="hidden" name="eyes-color" value="black">
       </div>
 
       <div class="setup-fireball-wrap">
         <div class="setup-fireball"></div>
-        <input type="hidden" name="fireball-color" value="#ee4830">
       </div>
 
       <div class="setup-artifacts" dropzone="move">
@@ -181,49 +169,6 @@
   </div>
 </template>
 
-<script>
-  var fireballSize = 22;
-  var wizardSpeed = 3;
-  var wizardWidth = 70;
-  var getWizardHeight = function proportionally(argument) {
-    var proportional = 1.337;
-    var wizardHeight = wizardWidth * proportional;
-
-    return wizardHeight;
-  };
-
-  getWizardHeight();
-
-  var getFireballSpeed = function correctionWindDirection(left) {
-    var fireballSpeed = 3.5;
-    var wind = 1.5;
-    var leftWindDirection = fireballSpeed + wind;
-    var rightWindDirection = fireballSpeed - wind;
-    // body...
-
-    return left ? rightWindDirection : leftWindDirection;
-  };
-
-  getFireballSpeed();
-
-  var getWizardX =function calculationWizardX(width) {
-    var wizardX = width/2.3;
-    // вначале я подумал сделать width/2, но измерив рулеткой на экране положение мага начал экспериментировать с коэфициентом. Эмпирическим путем выяснил, что 2.3 будет идеально смотреться посередине
-
-    return wizardX;
-  };
-
-  getWizardX();
-
-  var getWizardY =function calculationWizardY(height) {
-    var wizardY = height/3;
-  
-    return wizardY;
-  };
-
-  getWizardY();
-
-</script>
 <script src="js/game.js"></script>
 
 </body>
