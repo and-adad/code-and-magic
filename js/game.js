@@ -4,7 +4,7 @@ var setupOpen = document.querySelector('.setup-open');
 var setup = document.querySelector('.setup');
 var setupClose = setup.querySelector('.setup-close');
 
-setupOpen.addEventListener('click', function () {
+var openPopup = function () {
   setup.classList.remove('hidden');
 
   document.addEventListener('keydown', function (evt) {
@@ -14,21 +14,29 @@ setupOpen.addEventListener('click', function () {
     
   });
 
+};
+
+var closePopup = function () {
+  setup.classList.add('hidden');
+};
+
+setupOpen.addEventListener('click', function () {
+  openPopup();
 });
 
 setupOpen.addEventListener('keydown', function (evt) {
   if (evt.keyCode === 13) {
-    setup.classList.remove('hidden');
+    openPopup();
   }
 });
 
 setupClose.addEventListener('click', function () {
-  setup.classList.add('hidden');
+  closePopup();
 });
 
 setupClose.addEventListener('keydown', function (evt) {
   if (evt.keyCode === 13) {
-    setup.classList.add('hidden');
+    closePopup();
   }
 });
 
@@ -44,12 +52,3 @@ userNameInput.addEventListener('invalid', function (evt) {
     userNameInput.setCustomValidity('');
   }
 });
-
-/*userNameInput.addEventListener('input', function (evt) {
-  var target = evt.target;
-  if (target.value.length < 3) {
-    target.setCustomValidity('Имя должно состоять минимум из 3-х символов');
-  } else {
-    target.setCustomValidity('');
-  }
-});*/
