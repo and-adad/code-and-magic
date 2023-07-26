@@ -181,50 +181,11 @@
   </div>
 </template>
 
-<script>
-  var fireballSize = 22;
-  var wizardSpeed = 3;
-  var wizardWidth = 70;
-  var getWizardHeight = function proportionally(argument) {
-    var proportional = 1.337;
-    var wizardHeight = wizardWidth * proportional;
-
-    return wizardHeight;
-  };
-
-  getWizardHeight();
-
-  var getFireballSpeed = function correctionWindDirection(left) {
-    var fireballSpeed = 3.5;
-    var wind = 1.5;
-    var leftWindDirection = fireballSpeed + wind;
-    var rightWindDirection = fireballSpeed - wind;
-    // body...
-
-    return left ? rightWindDirection : leftWindDirection;
-  };
-
-  getFireballSpeed();
-
-  var getWizardX =function calculationWizardX(width) {
-    var wizardX = width/2.3;
-    // вначале я подумал сделать width/2, но измерив рулеткой на экране положение мага начал экспериментировать с коэфициентом. Эмпирическим путем выяснил, что 2.3 будет идеально смотреться посередине
-
-    return wizardX;
-  };
-
-  getWizardX();
-
-  var getWizardY =function calculationWizardY(height) {
-    var wizardY = height/3;
-  
-    return wizardY;
-  };
-
-  getWizardY();
-
-</script>
 <script src="js/game.js"></script>
+
+<script src="js/dialog.js"></script>
+<script src="js/dnd.js"></script>
+<script src="js/avatar.js"></script>
 
 </body>
 </html>
