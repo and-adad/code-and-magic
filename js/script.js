@@ -16,6 +16,7 @@
 
     var onMouseMove = function (moveEvt) {
       moveEvt.preventDefault();
+      console.log('hello');
       dragged = true;
 
       var shift = {
